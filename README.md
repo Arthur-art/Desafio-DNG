@@ -1,4 +1,4 @@
-# Desafío DNG
+# Desafio DNG
 
 # Entregas:
 • Código Fonte em um repositório Git.

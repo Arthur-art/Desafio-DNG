@@ -20,7 +20,7 @@ export const Register = () => {
 
     const { values, errors, touched, handleChange, handleBlur, handleSubmit, isSubmitting } = useFormik({
 
-        onSubmit: signup,
+        onSubmit: "",
         validationSchema,
         initialValues: {
             email: "",

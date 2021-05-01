@@ -1,13 +1,13 @@
 import '../styles/globals.css'
 import { ChakraProvider } from "@chakra-ui/react"
-import { AuthProvider } from "../components/Auth"
+
 
 function MyApp({ Component, pageProps }) {
-  return <ChakraProvider>
-    <AuthProvider>
+  return (
+    <ChakraProvider>
       <Component {...pageProps} />
-    </AuthProvider>
-  </ChakraProvider>
+    </ChakraProvider>
+  )
 }
 
 export default MyApp
