@@ -9,12 +9,14 @@ import {
     FormHelperText,
 } from "@chakra-ui/react";
 
+
 const validationSchema = yup.object().shape({
     email: yup.string().email("E-mail inválido").required("Não foi preenchido"),
     password: yup.string().required("Não foi preenchido"),
     username: yup.string().required("Não foi preenchido"),
     endereco: yup.string().required("Não foi preenchido")
 });
+
 
 export const Register = ({ back }) => {
 
@@ -28,19 +30,19 @@ export const Register = ({ back }) => {
         isSubmitting } = useFormik({
 
             onSubmit: (values, form) => {
+                console.log(values)
 
             },
             validationSchema,
             initialValues: {
-                email: "",
-                username: "",
-                password: "",
-
-
+                email: '',
+                username: '',
+                password: '',
+                endereco: ''
             },
 
         })
-    console.log(isSubmitting)
+
     return (
         <>
 
@@ -57,32 +59,37 @@ export const Register = ({ back }) => {
             </Container>
 
             <Container display="flex" gridGap="5" justifyContent="space-around" flexDirection="column">
+
                 <FormControl isRequired id="username">
                     <FormLabel>Nome</FormLabel>
                     <Input value={values.username} onChange={handleChange} onBlur={handleBlur} placeholder="User name" />
                     {touched.username && (<FormHelperText textColor="#e74c3c"> {errors.username}</FormHelperText>)}
                 </FormControl>
+
                 <FormControl isRequired id="endereco">
-                    <FormLabel value={values.endereco} onChange={handleChange} onBlur={handleBlur} placeholder="User name">Endereço</FormLabel>
-                    <Input />
-                    {touched.username && (<FormHelperText textColor="#e74c3c"> {errors.username}</FormHelperText>)}
+                    <FormLabel>Endereço</FormLabel>
+                    <Input value={values.endereco} onChange={handleChange} onBlur={handleBlur} placeholder="Endereço" />
+                    {touched.endereco && (<FormHelperText textColor="#e74c3c"> {errors.endereco}</FormHelperText>)}
                 </FormControl>
+
                 <FormControl isRequired id="email">
                     <FormLabel>E-mail</FormLabel>
                     <Input type="email" value={values.email} onChange={handleChange} onBlur={handleBlur} />
                     {touched.email && (<FormHelperText textColor="#e74c3c"> {errors.email}</FormHelperText>)}
                 </FormControl>
+
                 <FormControl isRequired id="password">
                     <FormLabel>Senha</FormLabel>
                     <Input type="password" value={values.password} onChange={handleChange} onBlur={handleBlur} />
                     {touched.password && (<FormHelperText textColor="#e74c3c"> {errors.password}</FormHelperText>)}
                 </FormControl>
-                <FormControl isRequired id="password">
-                    <FormLabel>Confirmação de senha</FormLabel>
-                    <Input type="password" />
-                    {touched.password && (<FormHelperText textColor="#e74c3c"> {errors.password}</FormHelperText>)}
-                </FormControl>
-                <Button marginTop="2rem" marginBottom="2rem" colorScheme="blue" onClick={handleSubmit} disabled={isSubmitting}>Cadastrar</Button>
+
+                <Button marginTop="2rem" marginBottom="2rem" colorScheme="blue" onClick={handleSubmit} isLoading={isSubmitting}>Cadastrar</Button>
+                <FormLabel>Confirmação de senha</FormLabel>
+                <Input type="password" />
+
+
+
             </Container>
         </>
     )
