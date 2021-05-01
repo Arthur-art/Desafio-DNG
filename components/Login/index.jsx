@@ -2,23 +2,18 @@ import { useFormik } from "formik"
 import * as yup from "yup"
 import {
     Container,
-    Box,
     Input,
     Button,
     FormControl,
     FormLabel,
-    FormHelperText,
-    InputGroup,
-    InputLeftAddon,
-    InputRightAddon
 } from "@chakra-ui/react";
 
-export const Login = () => {
+export const Login = ({ back }) => {
     return (
         <>
-            <a href="/">
-                <Button>Voltar</Button>
-            </a>
+
+            <Button onClick={() => back()}>Voltar</Button>
+
             <Container display="flex" gridGap="5" justifyContent="space-around" flexDirection="column">
                 <Container fontSize="2rem" display="flex" justifyContent="center">
                     <h1>Você está no login</h1>
