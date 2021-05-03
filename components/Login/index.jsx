@@ -52,7 +52,7 @@ export const Login = ({ back }) => {
         check()
         app.auth().onAuthStateChanged(user => {
             setloginSucess({
-                loafing: false,
+                loading: false,
                 user
             })
         })
