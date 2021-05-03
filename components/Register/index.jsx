@@ -30,9 +30,15 @@ export const Register = ({ back }) => {
         handleSubmit,
         isSubmitting } = useFormik({
 
-            onSubmit: (values, form) => {
+            onSubmit: async (values, form) => {
                 console.log(values)
+                try {
+                    const user = await app.auth().createUserWithEmailAndPassword(values.email, values.password)
+                    console.log(user)
 
+                } catch (error) {
+                    console.log('erro', error)
+                }
             },
             validationSchema,
             initialValues: {
@@ -86,8 +92,11 @@ export const Register = ({ back }) => {
                 </FormControl>
 
                 <Button marginTop="2rem" marginBottom="2rem" colorScheme="blue" onClick={handleSubmit} isLoading={isSubmitting}>Cadastrar</Button>
+                {/*<div>
                 <FormLabel>Confirmação de senha</FormLabel>
                 <Input type="password" />
+                </div>*/}
+
 
 
 

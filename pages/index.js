@@ -1,5 +1,5 @@
 import React, { useState, Fragment } from 'react'
-import { Container, Box, Input, Button, FormControl, FormLabel, FormHelperText } from "@chakra-ui/react"
+import { Container, Button } from "@chakra-ui/react"
 import { Login } from '../components/Login'
 import { Register } from '../components/Register'
 
