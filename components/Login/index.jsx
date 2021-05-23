@@ -51,17 +51,13 @@ export const Login = ({ back }) => {
     }
 
     useEffect(() => {
-        try {
-            check()
-            app.auth().onAuthStateChanged(user => {
-                setloginSucess({
-                    loading: false,
-                    user
-                })
+        check()
+        app.auth().onAuthStateChanged(user => {
+            setloginSucess({
+                loading: false,
+                user
             })
-        } catch (error) {
-            console.log('')
-        }
+        })
     }, [values.email, values.password])
 
 
