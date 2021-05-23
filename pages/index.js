@@ -1,9 +1,7 @@
-import React, { useState, Fragment, useEffect } from 'react'
+import React, { useState } from 'react'
 import { Container, Button } from "@chakra-ui/react"
 import { Login } from '../components/Login'
 import { Register } from '../components/Register'
-import { Profile } from '../components/Profile/index'
-import firebase from '../config/firebase/'
 
 export default function Home() {
 

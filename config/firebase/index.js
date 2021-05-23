@@ -11,7 +11,6 @@ const firebaseConfig = {
     measurementId: "G-7BE6G37820"
 };
 
-
 //Para evitar que o firebase seja recriado pelo hot reload do next 
 const app = firebaseClient.apps.length
     ? firebaseClient.app()

@@ -10,7 +10,6 @@ export const Profile = () => {
 
             <Button onClick={logout}>Sair</Button>
 
-
             <Container display="flex" justifyContent="center">
                 <img src="https://dngtransportes.com/wp-content/uploads/2019/03/dngtransportes-logo.jpg" alt="" />
             </Container>

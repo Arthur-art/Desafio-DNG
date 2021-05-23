@@ -34,7 +34,6 @@ export const Login = ({ back }) => {
 
         try {
             const user = app.auth().signInWithEmailAndPassword(values.email, values.password)
-            console.log(user)
         } catch (error) {
             console.log('erro', error)
         }
