@@ -35,7 +35,7 @@ export const Register = ({ back }) => {
                     const user = await app.auth().createUserWithEmailAndPassword(values.email, values.password)
 
                 } catch (error) {
-                    console.log('erro', error)
+                    console.log('')
                 }
             },
             validationSchema,

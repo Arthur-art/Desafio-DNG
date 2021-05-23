@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import app, { persistenceMode } from '../../config/firebase/index'
+import app from '../../config/firebase/index'
 import { Profile } from '../Profile/index'
 import {
     Container,
@@ -31,30 +31,37 @@ export const Login = ({ back }) => {
     }
 
     const check = () => {
-
         try {
-            const user = app.auth().signInWithEmailAndPassword(values.email, values.password)
+            app.auth().signInWithEmailAndPassword(values.email, values.password)
         } catch (error) {
-            console.log('erro', error)
+            console.log('')
         }
     }
 
     const handleSubmit = () => {
-        setValues({
-            email: String(newValue),
-            password: String(newValuePass)
-        })
+        try {
+            setValues({
+                email: String(newValue),
+                password: String(newValuePass)
+            })
+        } catch (error) {
+            console.log('')
+        }
 
     }
 
     useEffect(() => {
-        check()
-        app.auth().onAuthStateChanged(user => {
-            setloginSucess({
-                loading: false,
-                user
+        try {
+            check()
+            app.auth().onAuthStateChanged(user => {
+                setloginSucess({
+                    loading: false,
+                    user
+                })
             })
-        })
+        } catch (error) {
+            console.log('')
+        }
     }, [values.email, values.password])
 
 
