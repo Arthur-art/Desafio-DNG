@@ -13,7 +13,7 @@ import {
 
 const validationSchema = yup.object().shape({
     email: yup.string().email("E-mail inválido").required("Não foi preenchido"),
-    password: yup.string().required("Não foi preenchido"),
+    password: yup.number().min(6).required("Senha não preenchida, minimo 6 caracteres"),
     username: yup.string().required("Não foi preenchido"),
     endereco: yup.string().required("Não foi preenchido")
 });
